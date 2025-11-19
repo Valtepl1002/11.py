@@ -29,19 +29,19 @@ df = pd.DataFrame.from_dict(
 df['avg_item_weight'] = df['weight'] / df['items']
 
 # Виведемо отриманий DataFrame
-print("DataFrame:")
+print("Датафрейм:")
 print(df, "\n")
 
 # Перші 3 рядки DataFrame
-print("Перші 3 рядки:")
+print("Перші 3 рядки датафрейму:")
 print(df.head(3), "\n")
 
 # Типи даних
-print("Типи даних:")
+print("Типи даних у стовпцях:")
 print(df.dtypes, "\n")
 
 # Кількість рядків і стовпців
-print("Форма DataFrame (рядки, стовпці):")
+print("Форма датафрейму (рядки, стовпці):")
 print(df.shape, "\n")
 
 # Описова статистика
@@ -50,12 +50,12 @@ print(df.describe(), "\n")
 
 # Фільтрація даних – вага > 30 кг
 filtered = df[df['weight'] > 30]
-print("Фільтрація: вага > 30 кг:")
+print("Фільтрація: багаж з вагою більше 30 кг:")
 print(filtered, "\n")
 
 # Сортування даних – за спаданням ваги
 sorted_df = df.sort_values(by='weight', ascending=False)
-print("Сортування за вагою (спадання):")
+print("Сортування за вагою (за спаданням):")
 print(sorted_df, "\n")
 
 # Групування: середня вага для кожної кількості речей
@@ -68,4 +68,4 @@ max_weight = df['weight'].max()
 print("Максимальна вага багажу:", max_weight)
 
 unique_items = df['items'].nunique()
-print("Кількість унікальних значень 'items':", unique_items)
+print("Кількість унікальних значень у стовпці 'items':", unique_items)
