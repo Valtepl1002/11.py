@@ -45,3 +45,32 @@ plt.xlabel('Місяць')
 plt.ylabel('Кількість велосипедистів')
 plt.grid(True)
 plt.show()
+
+# Вибрана велодоріжка
+path_to_plot = "Berri1"
+
+# Переконаємось, що дата у форматі datetime
+df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+df['month'] = df['Date'].dt.month
+
+# Помісячні суми
+monthly_counts = df.groupby('month')[path_to_plot].sum()
+
+# Створення файлу
+monthly_df = monthly_counts.reset_index()
+monthly_df.columns = ["Month", "Cyclists"]
+
+output_filename = f"monthly_load_{path_to_plot}.csv"
+monthly_df.to_csv(output_filename, index=False, encoding='utf-8-sig')
+
+print(f"\nФайл '{output_filename}' успішно створено!")
+print(monthly_df)
+
+# Побудова графіка
+plt.figure(figsize=(10,5))
+monthly_counts.plot(kind='line', marker='o')
+plt.title(f'Завантаженість велодоріжки "{path_to_plot}" по місяцях')
+plt.xlabel('Місяць')
+plt.ylabel('Кількість велосипедистів')
+plt.grid(True)
+plt.show()
