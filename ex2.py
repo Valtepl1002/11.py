@@ -20,7 +20,7 @@ total_per_path = df[numeric_cols].sum()
 print("\nКількість велосипедистів за рік на кожній доріжці:")
 print(total_per_path)
 
-# 3. Найпопулярніший місяць на вибраних трьох велодоріжках
+# 3. Найпопулярніший місяць на трьох велодоріжках
 
 # Створення стовпця 'month'
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
