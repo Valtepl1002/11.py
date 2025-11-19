@@ -32,6 +32,10 @@ plt.bar([w for w, c in top10], [c for w, c in top10])
 plt.title("Топ-10 слів у тексті (до очищення)")
 plt.xlabel("Слова")
 plt.ylabel("Частота")
+
+# Збереження графіка у файл
+plt.savefig("top10_before_cleaning.png", dpi=300, bbox_inches='tight')
+
 plt.show()
 
 # 3. Очищення тексту (стоп-слова + пунктуація) 
@@ -57,4 +61,8 @@ plt.bar([w for w, c in top10_clean], [c for w, c in top10_clean])
 plt.title("Топ-10 слів (після видалення стоп-слів та пунктуації)")
 plt.xlabel("Слова")
 plt.ylabel("Частота")
+
+# Збереження графіка у файл
+plt.savefig("top10_after_cleaning.png", dpi=300, bbox_inches='tight')
+
 plt.show()
