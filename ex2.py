@@ -73,4 +73,7 @@ plt.title(f'Завантаженість велодоріжки "{path_to_plot}"
 plt.xlabel('Місяць')
 plt.ylabel('Кількість велосипедистів')
 plt.grid(True)
+
+plt.savefig("berri1_monthly_plot.png")
+
 plt.show()
