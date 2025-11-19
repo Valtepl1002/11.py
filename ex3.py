@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 
 # Завантаження необхідних ресурсів
 nltk.download('punkt')
+nltk.download('punkt_tab')
 nltk.download('stopwords')
 
 # Читання локального файлу у репозиторії
