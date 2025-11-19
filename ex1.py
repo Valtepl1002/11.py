@@ -29,11 +29,11 @@ df = pd.DataFrame.from_dict(
 df['avg_item_weight'] = df['weight'] / df['items']
 
 # Виведемо отриманий DataFrame
-print("Датафрейм:")
+print("DataFrame:")
 print(df, "\n")
 
 # Перші 3 рядки DataFrame
-print("Перші 3 рядки датафрейму:")
+print("Перші 3 рядки DataFrame:")
 print(df.head(3), "\n")
 
 # Типи даних
@@ -41,7 +41,7 @@ print("Типи даних у стовпцях:")
 print(df.dtypes, "\n")
 
 # Кількість рядків і стовпців
-print("Форма датафрейму (рядки, стовпці):")
+print("Форма DataFrame (рядки, стовпці):")
 print(df.shape, "\n")
 
 # Описова статистика
