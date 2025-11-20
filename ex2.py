@@ -38,18 +38,23 @@ path_to_plot = "Berri1"
 
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 
-plt.figure(figsize=(12, 6))
+plt.figure(figsize=(14, 6))
 
-# Побудова графіка напряму по датах
-plt.plot(df['Date'], df[path_to_plot], linewidth=1.2)
+# Побудова графіка по всіх днях для Berri1
+plt.plot(df['Date'], df[path_to_plot], marker='.', markersize=3, linewidth=1)
 
-plt.title(f'Завантаженість велодоріжки "{path_to_plot}" протягом 2010 року')
-plt.xlabel('Дата')
+plt.title(f'Завантаженість велодоріжки "{path_to_plot}" за 2010 рік')
+plt.xlabel('Місяць')
 plt.ylabel('Кількість велосипедистів')
 plt.grid(True)
 
-# Форматування місяців на осі X
-plt.gcf().autofmt_xdate()  
+# Підписуємо усі 12 місяців
+import calendar
+months = range(1, 13)
+month_starts = [pd.Timestamp(year=2010, month=m, day=1) for m in months]
+month_labels = [calendar.month_name[m] for m in months]
+
+plt.xticks(month_starts, month_labels, rotation=45)
 
 plt.tight_layout()
 plt.savefig("berri1_monthly_plot.png")
