@@ -38,6 +38,8 @@ df['Date'] = pd.to_datetime(df['Date'])
 
 df_berri = df[['Date', 'Berri1']].dropna()
 
+df_berri = df_berri.sort_values(by="Date")
+
 # Побудова графіка
 plt.figure(figsize=(12,6))
 plt.plot(df_berri['Date'], df_berri['Berri1'], marker='o', linestyle='-', markersize=3)
