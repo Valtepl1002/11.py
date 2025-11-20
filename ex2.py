@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 # Завантаження даних
 df = pd.read_csv('comptage_velo_2010.csv')
 
-df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
-
 # Перевірка основних характеристик
 print(df.head())
 print(df.info())
@@ -44,7 +42,7 @@ plt.close()
 
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 
-plt.figure(figsize=(14, 6))
+plt.figure(figsize=(22, 1))
 
 plt.plot(df['Date'], df[path_to_plot], marker='.', markersize=3, linewidth=1)
 
