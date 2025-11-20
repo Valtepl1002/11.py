@@ -47,12 +47,11 @@ plt.xlabel("Дата")
 plt.ylabel("Кількість велосипедистів")
 plt.grid(True)
 
-months = mdates.MonthLocator()                  
-months_fmt = mdates.DateFormatter('%b')   
+months_positions = pd.date_range("2010-01-01", "2010-12-01", freq="MS")
+months_labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-ax = plt.gca()
-ax.xaxis.set_major_locator(months)
-ax.xaxis.set_major_formatter(months_fmt)
+plt.xticks(months_positions, months_labels)
 
 plt.tight_layout()
 
