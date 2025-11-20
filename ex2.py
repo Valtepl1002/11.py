@@ -36,17 +36,13 @@ for path in paths:
 # 4. Побудова графіка завантаженості велодоріжки Berri1
 path_to_plot = "Berri1"
 
-plt.figure().clear()
-plt.clf()
-plt.close()
-
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 
-plt.figure(figsize=(22, 1))
+plt.figure(figsize=(16, 4))
 
 plt.plot(df['Date'], df[path_to_plot], marker='.', markersize=3, linewidth=1)
 
-plt.title('Завантаженість велодоріжки "Berri1" по днях (2010)')
+plt.title(f'Завантаженість велодоріжки "{path_to_plot}" по місяцях')
 plt.xlabel('Місяць')
 plt.ylabel('Кількість велосипедистів')
 plt.grid(True)
