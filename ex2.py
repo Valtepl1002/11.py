@@ -34,26 +34,20 @@ for path in paths:
     print(f"\nНайпопулярніший місяць для '{path}': {popular_month}")
 
 # 4. Побудова графіка завантаженості велодоріжки Berri1
-path_to_plot = "Berri1"
+df['Date'] = pd.to_datetime(df['Date'])
 
-df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+# Вибираємо лише Berri1
+df_berri = df[['Date', 'Berri1']].dropna()
 
-plt.figure(figsize=(14, 6))
+# Витягуємо місяць окремою колонкою
+df_berri['Month'] = df_berri['Date'].dt.to_period('M').astype(str)
 
-plt.plot(df['Date'], df[path_to_plot], marker='.', markersize=3, linewidth=1)
+plt.figure(figsize=(12,6))
+plt.plot(df_berri['Date'], df_berri['Berri1'], marker='o', linestyle='-', markersize=3)
 
-plt.title(f'Завантаженість велодоріжки "{path_to_plot}" по місяцях')
-plt.xlabel('Місяць')
-plt.ylabel('Кількість велосипедистів')
+plt.title("Завантаженість велодоріжки Berri1 протягом 2010 року")
+plt.xlabel("Дата")
+plt.ylabel("Кількість велосипедистів")
 plt.grid(True)
-
-import calendar
-months = range(1, 13)
-month_starts = [pd.Timestamp(year=2010, month=m, day=1) for m in months]
-month_labels = [calendar.month_name[m] for m in months]
-
-plt.xticks(month_starts, month_labels, rotation=45)
-
 plt.tight_layout()
-plt.savefig("berri1_monthly_plot.png")
 plt.show()
