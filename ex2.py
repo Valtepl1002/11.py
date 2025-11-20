@@ -37,17 +37,20 @@ for path in paths:
 path_to_plot = "Berri1"
 
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
-df['month'] = df['Date'].dt.month
 
-monthly_counts = df.groupby('month')[path_to_plot].sum()
+plt.figure(figsize=(12, 6))
 
-# Побудова графіка
-plt.figure(figsize=(10,5))
-monthly_counts.plot(kind='line', marker='o')
-plt.title(f'Завантаженість велодоріжки "{path_to_plot}" по місяцях')
-plt.xlabel('Місяць')
+# Побудова графіка напряму по датах
+plt.plot(df['Date'], df[path_to_plot], linewidth=1.2)
+
+plt.title(f'Завантаженість велодоріжки "{path_to_plot}" протягом 2010 року')
+plt.xlabel('Дата')
 plt.ylabel('Кількість велосипедистів')
 plt.grid(True)
 
-plt.savefig("berri1_monthly_plot.png")  # збереження зображення графіка
+# Форматування місяців на осі X
+plt.gcf().autofmt_xdate()  
+
+plt.tight_layout()
+plt.savefig("berri1_monthly_plot.png")
 plt.show()
