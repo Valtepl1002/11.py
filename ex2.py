@@ -33,22 +33,21 @@ for path in paths:
     popular_month = month_sum.idxmax()
     print(f"\nНайпопулярніший місяць для '{path}': {popular_month}")
 
-# 4. Побудова графіка завантаженості однієї велодоріжки
+# 4. Побудова графіка завантаженості однієї велодоріжки — тільки Berri1
 path_to_plot = "Berri1"
 
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 
 plt.figure(figsize=(14, 6))
 
-# Побудова графіка по всіх днях для Berri1
-plt.plot(df['Date'], df[path_to_plot], marker='.', markersize=3, linewidth=1)
+plt.plot(df['Date'], df[path_to_plot], marker='.', markersize=3, linewidth=1, color='red')
 
-plt.title(f'Завантаженість велодоріжки "{path_to_plot}" за 2010 рік')
+plt.title('Завантаженість велодоріжки "Berri1" по днях (2010)')
 plt.xlabel('Місяць')
 plt.ylabel('Кількість велосипедистів')
 plt.grid(True)
 
-# Підписуємо усі 12 місяців
+# Підписи місяців 
 import calendar
 months = range(1, 13)
 month_starts = [pd.Timestamp(year=2010, month=m, day=1) for m in months]
