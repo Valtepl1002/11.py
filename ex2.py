@@ -36,12 +36,9 @@ for path in paths:
 # 4. Побудова графіка завантаженості велодоріжки Berri1
 df['Date'] = pd.to_datetime(df['Date'])
 
-# Вибираємо лише Berri1
 df_berri = df[['Date', 'Berri1']].dropna()
 
-# Витягуємо місяць окремою колонкою
-df_berri['Month'] = df_berri['Date'].dt.to_period('M').astype(str)
-
+# Побудова графіка
 plt.figure(figsize=(12,6))
 plt.plot(df_berri['Date'], df_berri['Berri1'], marker='o', linestyle='-', markersize=3)
 
@@ -50,4 +47,7 @@ plt.xlabel("Дата")
 plt.ylabel("Кількість велосипедистів")
 plt.grid(True)
 plt.tight_layout()
+
+plt.savefig("berri1_plot.png", dpi=300)
+
 plt.show()
