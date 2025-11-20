@@ -38,7 +38,7 @@ path_to_plot = "Berri1"
 
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 
-plt.figure(figsize=(16, 4))
+plt.figure(figsize=(14, 6))
 
 plt.plot(df['Date'], df[path_to_plot], marker='.', markersize=3, linewidth=1)
 
