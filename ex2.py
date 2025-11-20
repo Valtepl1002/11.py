@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 # Завантаження даних
 df = pd.read_csv('comptage_velo_2010.csv')
 
+df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+
 # Перевірка основних характеристик
 print(df.head())
 print(df.info())
