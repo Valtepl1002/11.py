@@ -46,6 +46,14 @@ plt.title("Завантаженість велодоріжки Berri1 протя
 plt.xlabel("Дата")
 plt.ylabel("Кількість велосипедистів")
 plt.grid(True)
+
+months = mdates.MonthLocator()                  
+months_fmt = mdates.DateFormatter('%b')   
+
+ax = plt.gca()
+ax.xaxis.set_major_locator(months)
+ax.xaxis.set_major_formatter(months_fmt)
+
 plt.tight_layout()
 
 plt.savefig("berri1_plot.png", dpi=300)
